@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Találd meg az aknát!</title>
+    <script>
+        function mineLocation(field) {
+            for (var i = 0; i < field.length; i++) {
+                for (var j = 0; j < field[i].length; j++) {
+                    if (field[i][j] === 1) {
+                        return [i, j];
+                    }
+                }
+            }
+        }
+
+        function handleButtonClick() {
+            var inputField = JSON.parse(document.getElementById("inputField").value);
+            var result = mineLocation(inputField);
+            
+            document.getElementById("result").innerText = "A bomba helye: [" + result[0] + ", " + result[1] + "]";
+        }
+    </script>
+</head>
+<body>
+    <h1>Találd meg az aknát!</h1>
+    
+    <label for="inputField">Adja meg a 2D-s tömböt:</label>
+    <textarea id="inputField" placeholder='Pl.: [[0, 0, 0], [0, 1, 0], [0, 0, 0]]'></textarea>
+
+    <button onclick="handleButtonClick()">Aknahely keresése</button>
+
+    <p id="result">A bomba helye: </p>
+</body>
+</html>

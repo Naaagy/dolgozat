@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Szám kinyerése stringből</title>
+    <script>
+        function getNumberFromString(inputString) {
+            var numbersOnly = inputString.replace(/\D/g, '');
+            var result = parseInt(numbersOnly);
+
+            return result;
+        }
+
+        function handleButtonClick() {
+            var inputString = document.getElementById("inputString").value;
+            var result = getNumberFromString(inputString);
+            
+            document.getElementById("result").innerText = "Eredmény: " + result;
+        }
+    </script>
+</head>
+<body>
+    <h1>Szám kinyerése stringből</h1>
+    
+    <label for="inputString">Adja meg a szöveget:</label>
+    <input type="text" id="inputString" placeholder="Pl.: hell5o wor6ld">
+
+    <button onclick="handleButtonClick()">Szám kinyerése</button>
+
+    <p id="result">Eredmény: </p>
+</body>
+</html>

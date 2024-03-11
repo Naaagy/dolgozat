@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Egyszerű egymást követő párok</title>
+    <script>
+        function countConsecutivePairs(lst) {
+            var count = 0;
+            for (var i = 0; i < lst.length - 1; i++) {
+                if (Math.abs(lst[i] - lst[i + 1]) === 1) {
+                    count++;
+                }
+            }
+            return count;
+        }
+
+        function handlePairsButtonClick() {
+            var inputList = JSON.parse(document.getElementById("inputList").value);
+            var result = countConsecutivePairs(inputList);
+            
+            document.getElementById("pairsResult").innerText = "Egymást követő párok száma: " + result;
+        }
+    </script>
+</head>
+<body>
+    <h1>Egyszerű egymást követő párok</h1>
+    
+    <label for="inputList">Adja meg a számokat tartalmazó listát:</label>
+    <input type="text" id="inputList" placeholder="Pl.: [1,2,5,8,-4,-3,7,6,5]">
+
+    <button onclick="handlePairsButtonClick()">Párok számolása</button>
+
+    <p id="pairsResult">Egymást követő párok száma: </p>
+</body>
+</html>
